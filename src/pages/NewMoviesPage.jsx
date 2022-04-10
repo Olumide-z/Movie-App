@@ -1,19 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 import Heading from '../components/Heading/Heading';
-import MovieList from '../components/MovieCardList/MovieList';
-import Search from '../components/Search/Search';
+import NewMovies from '../components/NewMovies/NewMovies';
 
-
-const SearchPage = ({title}) => {
+const NewMoviesPage = () => {
   return (
     <Container>
-      <Search />
-        <Heading title={'Search Results'}/>
-      <MovieList />
+      <Heading title={'New Movies'} /> 
+      <NewMovies /> 
     </Container>
   )
 }
+
 
 const Container = styled.div`
   padding: 100px 50px 0 50px;
@@ -30,13 +27,11 @@ const Container = styled.div`
     @media screen and (max-width: 445px){
        padding: 100px 20px 0 20px;
     }
-
+  
   @media screen and (max-width: 300px){
     width: 300px;
   }
 `
 
 
-
-
-export default SearchPage;
+export default NewMoviesPage

@@ -3,16 +3,39 @@ import { Link } from 'react-router-dom';
 import { BsFillStarFill, BsFillBookmarkStarFill } from 'react-icons/bs'
 
 export const Container = styled.div`
-    /* background-color: blue; */
     height: 450px;
-    width: 220px;
-    margin: 1rem .3rem 0 .3rem;
+    width: 237px;
+    margin: 1rem .3rem 2rem .3rem;
     position: relative;
+    
+    @media screen and (max-width : 1335px){
+        width: 220px;
+    }
 
+    @media screen and (max-width : 1024px){
+        width: 200px;
+        margin: 1rem .3rem 0rem .3rem;
+    }
+    
     @media screen and (max-width : 968px){
         height: 400px;
         width: 170px;
-        margin: .7rem 0rem 0 0rem;
+    }
+
+    @media screen and (max-width : 595px){
+        width: 150px;
+        height: 370px;
+    }
+
+    @media screen and (max-width : 358px){
+        width: 120px;
+        height: 300px;
+    }
+`
+export const Wrap = styled.div`
+     &:hover{
+        transform: scale(1.05);
+        transition: all .2s;
     }
 `
 export const ImageWrapper = styled(Link)`
@@ -24,27 +47,31 @@ export const Image = styled.img`
     height: 70%;
     object-fit: cover;
     background-color: #603601;
-
-    &:hover{
-        transform: scale(1.05);
-        transition: all .2s;
-    }
+    transition: all .3s;
 `
-export const Wishlist = styled(BsFillBookmarkStarFill)`
-    color: #fff;
+export const WatchlistBtn = styled.button`
     font-size: 2.5rem;
     position: absolute;
     top: 0;
     left: 0;
-    opacity: .7;
-
-    &:hover{
-        opacity: 1;
-    }
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
 
     @media screen and (max-width : 968px){
         font-size: 2rem;
     }
+`
+export const Watchlist = styled(BsFillBookmarkStarFill)`
+    opacity: .7;
+    color: white;
+   
+    &:hover{
+        opacity: 1;
+    }
+
 `
 
 export const MovieDetails = styled.div`
@@ -55,8 +82,21 @@ export const MovieDetails = styled.div`
     margin-top: 10px;
     height: 40px;
 
+    @media screen and (max-width : 1024px){
+        width: 200px;
+    }
+
     @media screen and (max-width : 968px){
         width: 170px;
+    }
+
+    @media screen and (max-width : 595px){
+        width: 150px;
+    }
+
+    
+    @media screen and (max-width : 358px){
+        width: 120px;
     }
 `
 export const MovieTitle = styled.h3`
@@ -66,25 +106,58 @@ export const MovieTitle = styled.h3`
     @media screen and (max-width : 968px){
         width: 120px;
     }
+
+    @media screen and (max-width: 445px){
+        width: 100px;
+        font-size: .8rem
+    }
 `
 export const Date = styled.p`
     font-size: .7rem;
+
+    
+    @media screen and (max-width : 358px){
+        font-size: .6rem;
+    }
 `
 export const Button = styled.button`
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 8px 20px;
     font-size: .7rem;
-    margin-top: 5px;
-    outline: none;
-    border: none;
-    background-color: #603601;
-    color: #fff;
+    margin-top: 8px;
     font-weight: 600;
+    color: white;
+    border: 1px solid #603601;
+    background: transparent;
     border-radius: 5px;
+    outline: none;
+    text-transform: uppercase;
+   
+    &:hover{
+        background-color: #603601;
+        transition: all .3s;
+    }
+    
+    @media screen and (max-width : 358px){
+        font-size: .5rem;
+    }
+    
+`
+export const BtnLink = styled(Link)`
+    text-decoration: none;
+    color: white;
 `
 export const Rating = styled.p`
     font-size: 1rem;
     
+    @media screen and (max-width: 445px){
+        font-size: .8rem
+    }
+
+    @media screen and (max-width: 595px){
+        display: flex;
+        align-items: center;
+    }
 `
 export const Star = styled(BsFillStarFill)`
     margin-left: 5px;

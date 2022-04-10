@@ -2,16 +2,18 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
-import Home from './pages/Home';
-import NewMovies from './pages/NewMovies'
+import Home from './pages/HomePage/Home';
+import NewMoviesPage from './pages/NewMoviesPage'
 import TrendingMovies from './pages/TrendingMovies';
-import Watchlist from './pages/Watchlist';
-import ComingSoon from './pages/ComingSoon';
+import Watchlist from './pages/WatchlistPage/Watchlist';
 import About from './pages/About';
 import Footer from './components/Footer/Footer';
 import SearchPage from './pages/SearchPage';
 
-// import Error from './pages/Error';
+import Error from './pages/Error';
+import SingleMovie from './pages/SingleMovie/SingleMovie';
+import SingleTv from './pages/SingleTv/SingleTv';
+import TopRatedPage from './pages/TopRatedPage';
 // 3063e6beaffd5118bd176b35e99fee56
 
 function App() {
@@ -20,28 +22,17 @@ function App() {
          <Navbar />
          <Routes>
            <Route path='/' element={<Home />}/>
-         </Routes>
-         <Routes>
-           <Route path='/new-movies' element={<NewMovies />}/>
-         </Routes>
-         <Routes>
+           <Route path='/new-movies' element={<NewMoviesPage />}/>
            <Route path='/trending' element={<TrendingMovies />} />
-         </Routes>
-         <Routes>
-           <Route path='/coming-soon' element={<ComingSoon />} />
-         </Routes>
-         <Routes>
+           <Route path='/top-rated' element={<TopRatedPage />} />
            <Route path='/search' element={<SearchPage />} />
-         </Routes>
-         <Routes>
            <Route path='/watchlist' element={<Watchlist />} />
-         </Routes>
-         <Routes>
            <Route path='/about' element={<About />} />
-         </Routes>
-         {/* <Routes>
            <Route path='*' element={<Error />} />
-         </Routes> */}
+           <Route path='/movie/:id' element={<SingleMovie/>} />
+           <Route path='/tv/:id' element={<SingleTv />} />
+         </Routes>
+         
          <Footer />
       </Router>
   );

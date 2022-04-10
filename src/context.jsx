@@ -2,24 +2,49 @@ import React, { useContext, useEffect, useState } from "react";
 
 const AppContext = React.createContext();
 
-const API_URL = 'https://api.themoviedb.org/3/search/multi?api_key=3063e6beaffd5118bd176b35e99fee56&language=en-US&query='
+const API_URL = `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=`
 
 
 const AppProvider = ({ children }) => {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(true);
     const [searchMovie, setSearchMovie] = useState('');
     const [movie, setMovie] = useState([])
     const [input, setInput] = useState('');
+    const [watchlist, setWatchlist] = useState(localStorage.getItem('watchlist') 
+                                      ? JSON.parse(localStorage.getItem('watchlist')) 
+                                      : []);
+
+  const addToWatchlist = (singleMovie) => {
+    setWatchlist([...watchlist, singleMovie])
+  }
+  console.log(watchlist);
+
+  const removeWatchlist = (singleMovie) => {
+    const newWatchlist = watchlist.filter((item) => item.id !== singleMovie.id);
+    setWatchlist(newWatchlist)
+  }
+
+  useEffect(() => {
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+  }, [watchlist])
     
     const fetchMoviesData = async (searchMovie) => {
-        setLoading(true)
+       setLoading(true)
+       try{
         const response = await fetch(`${API_URL}${searchMovie}`);
         const data = await response.json();
-      
+        setLoading(false)
+        
         if(data.results){
             setMovie(data.results)
         };
-        console.log(data.results)
+        // console.log(data.results)
+       }catch(error){
+            setLoading(false);
+            console.log(error)
+       } 
+       
       }
       
       useEffect(() => {
@@ -35,8 +60,14 @@ const AppProvider = ({ children }) => {
             setMovie,
             loading,
             setLoading,
+            loading2,
+            setLoading2,
             input,
-            setInput
+            setInput,
+            watchlist,
+            addToWatchlist,
+            setWatchlist,
+            removeWatchlist
         }}
     >
         {children}

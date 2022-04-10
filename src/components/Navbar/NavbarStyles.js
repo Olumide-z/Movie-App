@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import { ImSearch } from 'react-icons/im'
 import { BsBookmarkFill } from 'react-icons/bs'
@@ -22,24 +22,36 @@ export const Container = styled.div`
     box-shadow: -12px 0px 17px -3px rgba(0,0,0,0.70);
     -webkit-box-shadow: -12px 0px 17px -3px rgba(0,0,0,0.70);
     -moz-box-shadow: -12px 0px 17px -3px rgba(0,0,0,0.70);
+
+    @media screen and (max-width: 600px){
+        padding: 0 1rem;
+    }
 `;
 
-const NavLink = css`
+const Nlink = css`
     text-decoration: none;
     color: white;
     font-weight: 600;
 `
 export const Logo = styled(Link)`
-    ${NavLink}
+    ${Nlink}
     font-size: 1.7rem;
     font-weight: 200;
     display: flex;
     align-items: center;
+
+    @media screen and (max-width: 375px){
+        font-size: 1.3rem;
+    }
 `;
 
 export const LogoIcon = styled(MdOutlineLocalMovies)`
     color: #fff;
     font-size: 2.5rem;
+
+    @media screen and (max-width: 375px){
+        font-size: 1.5rem;
+    }
 `
 export const MenuWrapper = styled.ul`
     display: flex;
@@ -52,14 +64,16 @@ export const MenuWrapper = styled.ul`
 
 export const MenuItem = styled.li`
     list-style: none;
-    min-height: 80px;
     display: flex;
     align-items: center;
     text-align: center;
 `;
 
-export const MenuLink = styled(Link)`
-     ${NavLink}
+export const MenuLink = styled(NavLink)`
+     ${Nlink}
+     color: ${(props) => {
+        return props.style ? (isActive) => (isActive ? "#1C0A00" : "#fff") : "none";
+    }};
      padding: 0 1.5rem;
      font-size: 1.2rem;
      transition: all .3s;
@@ -75,18 +89,39 @@ export const NavIcons = styled.div`
     color: white;
     cursor: pointer;
 `;
-export const Icon = styled(Link)`
+export const Icon = styled(NavLink)`
     text-decoration: none;
     font-size: 1.2rem;
     padding: 0 1rem;
     color: #fff;
     transition: all .3s;
-    
+    position: relative;
+
     &:hover{
          color: #1C0A00;
      }
+
+    @media screen and (max-width: 375px){
+        font-size: 1rem;
+    }
+
+    .watchlist-numbers{
+        background-color: #1C0A00;
+        font-size: 0.7rem;
+        padding: 2px 5px;
+        border-radius: 100%;
+        position: absolute;
+        top: -10px;
+        right: 10px;
+
+        &:hover{
+            color: white;
+        }
+    }
 `
-export const BarsContainer = styled.div``;
+export const BarsContainer = styled.div`
+    z-index: 100;
+`;
 
 
 export const Bars = styled.div`
@@ -96,6 +131,10 @@ export const Bars = styled.div`
     position: relative;
     margin-left: 1rem;
 
+    @media screen and (max-width: 375px){
+        width: 20px;
+        margin-left: .7rem;
+    }
 
     ::before,
     ::after{
@@ -104,6 +143,10 @@ export const Bars = styled.div`
         background-color: #fff;
         height: 2.5px;
         position: absolute;
+
+        @media screen and (max-width: 375px){
+            width: 15px;
+        }   
     }
 
     ::after{
@@ -124,27 +167,29 @@ export const Times = styled(Bars)`
     ::after{
         width: 25px; 
         top: 0;
+
+        @media screen and (max-width: 375px){
+            width: 22px;
+        } 
     }
 
     ::after{
         transform: rotate(45deg);
-        transition: transform 1s;
     }
 
     ::before{
         transform: rotate(-45deg);
-        transition: transform 1s;
     }
 `;
 // SIDEBAR
 export const Sidebar = styled.div`
-    top: 80px;
+    top: 0;
     right: 0;
     width: 300px;
     background-color: #603601;
-    padding: 2rem 1rem 0 1rem;
+    padding: 6rem 1rem 0 1rem;
     text-align: right;
-    height: 100vh;
+    height: 1500px;
     position: fixed;
     transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform .5s;
@@ -152,15 +197,26 @@ export const Sidebar = styled.div`
     -webkit-box-shadow: -12px 9px 17px -3px rgba(0,0,0,0.72);
     -moz-box-shadow: -12px 9px 17px -3px rgba(0,0,0,0.72);
 
-    @media screen and (max-width: 768px){
-        width: 250px;
+    /* @media screen and (max-width: 950px){
         top: 70px;
-    }
+    } */
+
+    @media screen and (max-width: 1080px){
+        padding-top: 3rem;
+    } 
+
+    @media screen and (max-width: 785px){
+        width: 250px;
+    } 
 `
 export const SidebarMenuItem = styled.div`
     margin: 1rem 2rem;
     border-bottom: 1px solid #fff;
     padding-bottom: 1rem;
+
+    @media screen and (max-width: 1080px){
+        padding-bottom: .5rem;
+    } 
 `
 export const SidebarLink = styled(Link)`
     text-decoration: none;
@@ -179,7 +235,7 @@ export const SidebarLink = styled(Link)`
 `
 const IconStyle = css`
     padding-left: 1rem;
-    font-size: 1.2rem;
+    font-size: 2.2rem;
 `
 export const HomeIcon = styled(MdMapsHomeWork)`
     ${IconStyle}
@@ -197,5 +253,8 @@ export const AboutIcon = styled(MdOutlineContactSupport)`
     ${IconStyle}
 `
 export const SearchIcon = styled(ImSearch)`
+    ${IconStyle}
+`
+export const SoonIcon = styled(MdOutlineLocalMovies)`
     ${IconStyle}
 `

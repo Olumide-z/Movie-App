@@ -13,6 +13,14 @@ export const Container = styled.div`
     @media screen and (max-width: 968px){
         padding: 3rem;
     }
+
+    @media screen and (max-width: 395px){
+        padding: 2rem;
+    }
+
+    @media screen and (max-width: 300px){
+        width: 300px;
+    }
 `
 export const Header = styled.h1`
     font-size: 2rem;
@@ -23,6 +31,11 @@ export const Header = styled.h1`
     @media screen and (max-width: 968px){
         font-size: 1.2rem;
     }
+
+    @media screen and (max-width: 395px){
+        font-size: 1rem;
+        letter-spacing: 0px;
+    }
 `
 export const Details = styled.div`
     font-size: .9rem;
@@ -32,6 +45,11 @@ export const Details = styled.div`
     
     @media screen and (max-width: 968px){
         font-size: .8rem;
+    }
+
+    @media screen and (max-width: 395px){
+        font-size: .7rem;
+        flex-direction: column;
     }
 `
 export const Text = styled.p`
@@ -46,4 +64,5 @@ export const GitLink = styled.a`
 `
 export const GitIcon = styled(FaGithub)`
     padding-right: 5px;
+    font-size: 1.2rem;
 ` 

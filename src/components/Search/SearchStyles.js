@@ -23,6 +23,11 @@ export const Input = styled.input`
     width: 70%;
   }
 
+  @media screen and (max-width : 440px){
+        padding: .5rem;
+        font-size: .9rem;
+  }
+
 `
 export const Button = styled.button`
   padding: 1.06rem;
@@ -35,5 +40,9 @@ export const Button = styled.button`
 
   @media screen and (max-width: 768px){
     width: 70px
+  }
+
+  @media screen and (max-width : 440px){
+        padding: .54rem;
   }
 `
