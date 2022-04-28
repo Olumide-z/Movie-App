@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 100px 0;
-`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 100px 0;
+`;
 
 export const Loading = styled.div`
   border: 10px solid #fff;
@@ -18,14 +18,22 @@ export const Loading = styled.div`
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 
-    /* Safari */
-    @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
     }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
 
-    @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
     }
-` 
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;

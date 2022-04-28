@@ -1,17 +1,17 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-`
+`;
 export const Input = styled.input`
   width: 80%;
-  padding: .8rem;
+  padding: 0.8rem;
   font-size: 1.2rem;
   outline: none;
-  transition: all .3s;
+  transition: all 0.3s;
   border: none;
   border-radius: 5px 0 0px 5px;
 
@@ -19,16 +19,15 @@ export const Input = styled.input`
     width: 90%;
   }
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 70%;
   }
 
-  @media screen and (max-width : 440px){
-        padding: .5rem;
-        font-size: .9rem;
+  @media screen and (max-width: 440px) {
+    padding: 0.5rem;
+    font-size: 0.9rem;
   }
-
-`
+`;
 export const Button = styled.button`
   padding: 1.06rem;
   background: #603601;
@@ -38,11 +37,11 @@ export const Button = styled.button`
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 
-  @media screen and (max-width: 768px){
-    width: 70px
+  @media screen and (max-width: 768px) {
+    width: 70px;
   }
 
-  @media screen and (max-width : 440px){
-        padding: .54rem;
+  @media screen and (max-width: 440px) {
+    padding: 0.54rem;
   }
-`
+`;
