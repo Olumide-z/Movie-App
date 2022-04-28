@@ -11,14 +11,14 @@ import {
 const MovieCard = (singleMovie) => {
   const {addToWatchlist, watchlist } = useGlobalContext();
 
-  let storedMovie = watchlist.find(o => o.id === singleMovie.id);
-  const watchlistDisable = storedMovie ? true : false
+  // let storedMovie = watchlist.find(o => o.id === singleMovie.id);
+  // const watchlistDisable = storedMovie ? true : false
   
   return (
       <Container>
         <Wrap>
         <WatchlistBtn  
-          disabled={watchlistDisable}
+          // disabled={watchlistDisable}
           onClick={() => addToWatchlist(singleMovie)}
         >
           <Watchlist/>

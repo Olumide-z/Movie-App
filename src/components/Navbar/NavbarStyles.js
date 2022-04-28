@@ -71,9 +71,9 @@ export const MenuItem = styled.li`
 
 export const MenuLink = styled(NavLink)`
      ${Nlink}
-     color: ${(props) => {
+     /* color: ${(props) => {
         return props.style ? (isActive) => (isActive ? "#1C0A00" : "#fff") : "none";
-    }};
+    }}; */
      padding: 0 1.5rem;
      font-size: 1.2rem;
      transition: all .3s;

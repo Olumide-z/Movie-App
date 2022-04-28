@@ -364,10 +364,13 @@ export const HeadingContainer = styled(Link)`
         transition: all .2s;
     }
 `
-export const MovieHeader = styled.h2`
+export const MovieHeader = styled(Link)`
     display: flex;
     align-items: center;
     margin-bottom: 2.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
 `
 export const Header = styled.h1`
   margin-top: 2rem;

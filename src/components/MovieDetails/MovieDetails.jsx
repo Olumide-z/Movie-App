@@ -1,14 +1,18 @@
 import React from 'react'
 import moment from 'moment';
+import { useGlobalContext } from '../../context';
 
 import { 
     Container, Wrapper, LargeImgWrapper, LargeImg, SmallImgWrapper, SmallImg, Title, 
     Span, Genre, GenList, GenName, Overview, OverviewHeading, OverviewInfo, ReleaseDate, 
-    Rating, Info, Star, Season, SeasonTitle, SeasonInfo
+    Rating, Info, Star, Season, SeasonTitle, SeasonInfo,
   } from './MovieDetailsStyles';
 
 const MovieDetails = ({ content }) => {
   
+  // let storedMovie = watchlist.find(t => t.id === id);
+  // const watchlistDisable = storedMovie ? true : false
+
   return (
     <Container>
       {content && (

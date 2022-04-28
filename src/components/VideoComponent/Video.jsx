@@ -3,18 +3,14 @@ import Iframe from 'react-iframe';
 import axios from 'axios';
 import { useGlobalContext } from '../../context';
 
-import { VideoContainer, Button, Watchlist } from './VideoStyles';
+import { VideoContainer, Button, Watchlist} from './VideoStyles';
 
 const MOVIE_VIDEO_URL = `https://api.themoviedb.org/3/movie/`;
 const TV_VIDEO_URL = `https://api.themoviedb.org/3/tv/`;
 
 const Video = ( { id, content}) => {
-const [video, setVideo] = useState();
 const {addToWatchlist, watchlist} = useGlobalContext();
-
-// let storedMovie = watchlist.find(o => o.id === id);
-// const watchlistDisable = storedMovie ? true : false
-
+const [video, setVideo] = useState();
 
     // fetch Video
 const fetchVideos = async() => {
@@ -48,12 +44,11 @@ const fetchVideosTv = async() => {
       allowFullScreen
     />
     }
-    <Button
-      // disabled={watchlistDisable}
-      onClick={() => addToWatchlist(content)}
-    >
-      <Watchlist/> Add to watchlist
-    </Button>
+      <Button
+        onClick={() => addToWatchlist(content)}
+        >
+       <Watchlist/> Add to watchlist
+      </Button>
     </VideoContainer>
   )
 }

@@ -6,6 +6,7 @@ import MovieCard from '../../components/MovieCard/MovieCard'
 import { Wrapper } from '../../components/MovieDetails/MovieDetailsStyles';
 import { MovieContainer } from '../../components/Trending/TrendingStyles';
 import { useGlobalContext } from '../../context';
+import { Link } from 'react-router-dom';
 
 // import { MovieDetails, MovieTitle, Rating } from '../../components/MovieCard/MovieCardStyles';
 import { 
@@ -26,8 +27,8 @@ const Home = (item) => {
   const [main, setMain] = useState([]);
   const {loading2, setLoading2, addToWatchlist, watchlist} = useGlobalContext();
   
-  let storedMovie = watchlist.find(o => o.id === item.id);
-  const watchlistDisable = storedMovie ? true : false
+  // let storedMovie = watchlist.find(o => o.id === item.id);
+  // const watchlistDisable = storedMovie ? true : false
   
   const getTrending = async() => {
     setLoading2(true)
@@ -75,7 +76,7 @@ const Home = (item) => {
           </LargeImgContainer>
           <DetailWrapper>
             <WatchlistBtn2
-              disabled={watchlistDisable}
+              // disabled={watchlistDisable}
               onClick={() => addToWatchlist(item)}
             >
               <Watchlist2/>
@@ -91,7 +92,9 @@ const Home = (item) => {
               <Wrap2>
                   <p>{`${(item.overview).slice(0, 250)}...`}</p>
                   <Date>Released:{moment(item.release_date).format('ll')}</Date>
-                  <button>MORE DETAILS</button>
+                  <BtnLink to={`/movie/${item.id}`}>
+                    <Button>More Details</Button>
+                  </BtnLink>
               </Wrap2>
             </MovieInfo>
           </DetailWrapper>
@@ -103,7 +106,9 @@ const Home = (item) => {
               <Wrap2>
                   <p>{`${(item.overview).slice(0, 250)}...`}</p>
                   <Date>Released: {moment(item.release_date).format('ll')}</Date>
-                  <button>MORE DETAILS</button>
+                  <BtnLink to={`/movie/${item.id}`}>
+                      <Button>More Details</Button>
+                  </BtnLink>
               </Wrap2>
             </Info2>
           </Wrapper>
@@ -111,13 +116,13 @@ const Home = (item) => {
         ))
         }
         <Article>
-        <MovieHeader>New Movies <Arrow /></MovieHeader>
+        <MovieHeader to='/new-movies'>New Movies <Arrow /></MovieHeader>
           { content && content.map((item) => {
               const {id, poster_path, title, vote_average, release_date} = item;
               return (
                 <Container>
                   <WatchlistBtn
-                    disabled={watchlistDisable}
+                    // disabled={watchlistDisable}
                     onClick={() => addToWatchlist(item)}
                   >
                       <Watchlist/>

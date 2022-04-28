@@ -16,9 +16,18 @@ const AppProvider = ({ children }) => {
                                       : []);
 
   const addToWatchlist = (singleMovie) => {
-    setWatchlist([...watchlist, singleMovie])
+      const index = watchlist.findIndex(element => element.id === singleMovie.id)
+
+      if(index === -1){
+        return  setWatchlist([...watchlist, singleMovie])
+      }else {
+        return  setWatchlist([...watchlist])
+      }
+     
   }
-  console.log(watchlist);
+ 
+   
+  
 
   const removeWatchlist = (singleMovie) => {
     const newWatchlist = watchlist.filter((item) => item.id !== singleMovie.id);

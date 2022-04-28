@@ -30,34 +30,16 @@ const Navbar = () => {
 
         <MenuWrapper>
             <MenuItem>
-              <MenuLink
-                to='/new-movies' 
-                end={true}
-                style={({ isActive }) => {
-                  return { color: isActive ? "#1C0A00" : "white" };
-                }}
-              >New Movies</MenuLink>
+              <MenuLink to='/new-movies'>New Movies</MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink 
-                style={({ isActive }) => {
-                  return { color: isActive ? "#1C0A00" : "none" };
-                }}
-                to='/trending'>Trending</MenuLink>
+              <MenuLink to='/trending'>Trending</MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink
-                style={({ isActive }) => {
-                  return { color: isActive ? "#1C0A00" : "none" };
-                }}
-              to='/top-rated'>Top Rated</MenuLink>
+              <MenuLink to='/top-rated'>Top Rated</MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink 
-                style={({ isActive }) => {
-                  return { color: isActive ? "#1C0A00" : "none" };
-                }}
-              to='/about'>About</MenuLink>
+              <MenuLink to='/about'>About</MenuLink>
             </MenuItem>
         </MenuWrapper>
 

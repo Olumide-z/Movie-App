@@ -33,7 +33,7 @@ const SingleTv = () => {
   return (
     <>
     <MovieDetails content={content}/>
-    <Video id={id} />
+    <Video id={id} content={content}/>
     </>
   )
 }
