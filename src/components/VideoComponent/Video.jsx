@@ -41,7 +41,7 @@ const Video = ({ id, content }) => {
     <VideoContainer>
       {video && (
         <Iframe
-          url={`http://www.youtube.com/embed/${video.key}`}
+          url={`https://www.youtube.com/embed/${video.key}`}
           id={video.id}
           className="iframe"
           display="initial"

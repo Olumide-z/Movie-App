@@ -5,7 +5,7 @@ import Heading from "../components/Heading/Heading";
 const About = () => {
   return (
     <Container>
-      <Heading title={"About MovieLand"} />
+      <Heading title={"About MovieWorld"} />
       <Details>
         MovieWorld provides you with all movies updates, which includes
         trending, top rated, and new movies and tv shows. The app allows you to
